@@ -1,7 +1,7 @@
 define [
 	"helpers/ctx"
-	"core/platform"
-	"core/player"
+	"core/game/platform"
+	"core/game/player"
 	"libs/kevent"
 	"libs/requestAnimationFrame"
 ], (getCtx, Platform, Player, KEvent) ->
@@ -19,6 +19,7 @@ define [
 			@ctx = getCtx selector, WIDTH, HEIGHT
 			@platforms = []
 			@player = new Player @ctx, "img/tux.png"
+			console.log @player
 			@createPlatforms()
 
 		createPlatforms: ->

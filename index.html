@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Simple game with HTML5 Canvas part 5</title>
+  <title>Chicken Jump</title>
   <link rel="stylesheet" href="css/main.css">
   <script data-main="js/main" src="js/libs/require.js"></script>
 </head>
@@ -8,12 +8,28 @@
 	<div id="main">
 		<div id="menu">
 			<h1>Chicken Jump</h1>
-			<p>A little game doodle jump like :)</p>
+			<p>A little game doodle jump like made in html5 canvas.</p>
+			<button data-target="game">Play</button>
+			<button data-target="help">Help</button>
+			<button data-target="credits">Credits</button>
+			<a target="_blank" href="https://github.com/JeremieT/chicken-jump">Github</a>
+		</div>
+		<div id="help">
+			<h1>Help</h1>
+			<p>Here some help</p>
+			<button data-target="menu">Back</button>
+		</div>
+		<div id="credits">
+			<h1>Credits</h1>
+			<p>Here some credits</p>
+			<button data-target="menu">Back</button>
 		</div>
 		<div id="game"></div>
 		<div id="end">
 			<h1>Game Over</h1>
-			<p>You loose, try again :p (score: <span id="score"></span>)</p>
+			<p>You loose, try again :p</p>
+			<p>Your score is <span id="score"></span>.</p>
+			<button onclick="javascript:window.location.reload()">Back</button>
 		</div>
 	</div>
 </body>

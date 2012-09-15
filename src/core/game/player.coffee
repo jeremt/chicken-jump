@@ -1,6 +1,6 @@
 define [
-	"core/platform"
-	"core/sprite"
+	"core/game/platform"
+	"core/game/sprite"
 	], (Platform, Sprite) ->
 
 	class Player
@@ -46,12 +46,12 @@ define [
 		randType: ->
 			i = ~~(Math.random() * 10)
 			if score > 250
-				return [0, 0, 0, 0, 0, 1, 1, 1, 1, 2][i]
+				return [0, 0, 0, 0, 1, 1, 1, 1, 2, 2][i]
 			if score > 500
-				return [0, 0, 0, 1, 1, 1, 1, 1, 1, 2][i]
+				return [0, 0, 1, 1, 1, 1, 1, 1, 1, 2][i]
 			if score > 1000
 				return [0, 1, 1, 1, 1, 1, 1, 1, 1, 1][i]
-			return [0, 0, 0, 0, 0, 0, 1, 2, 2, 2][i]
+			return [0, 0, 0, 0, 0, 0, 1, 1, 2, 2][i]
 		jump: (platforms) ->
 			if @y > @ctx.height * 0.4
 				@move @x, @y - @jumpSpeed

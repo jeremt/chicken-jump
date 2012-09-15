@@ -5,12 +5,24 @@
     "kevent": "libs/kevent"
   });
 
-  require(["core/game"], function(Game) {
-    var game;
-    game = new Game("#game");
-    return game.run(function(score) {
-      return console.log("score: " + score);
-    });
+  require(["core/menu", "core/game/main"], function(Menu, Game) {
+    var gameMenu, pages, runGame;
+    runGame = function() {
+      var game;
+      game = new Game("#game");
+      return game.run(function(score) {
+        gameMenu.switchPage("#end");
+        return document.querySelector("#score").innerHTML = score;
+      });
+    };
+    pages = {
+      "#menu": null,
+      "#game": runGame,
+      "#credits": null,
+      "#help": null,
+      "#end": null
+    };
+    return gameMenu = new Menu("#main", "#menu", pages);
   });
 
 }).call(this);
