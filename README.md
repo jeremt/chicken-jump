@@ -2,6 +2,9 @@
 
 A little game doodle jump like made in html5 canvas.
 
+## Demo
+You can see the demo at <http://jeremiet.github.com/chicken-jump/>.
+
 ## Usage
 First clone the repository :
 ```shell
