@@ -23,7 +23,7 @@ h1 {
 	margin: auto;
 }
 
-button, a {
+button, .button {
 	box-sizing: border-box;
 	display: block;
 	color: rgba(0, 0, 0, .42);
@@ -37,6 +37,18 @@ button, a {
 	margin: 20px auto;
 }
 
-button:hover, a:hover {
+button:hover, .button:hover {
+	cursor: pointer;
 	background: rgba(0, 0, 0, .1);
+}
+
+@media screen and (max-width: 400px), screen and (max-device-width: 400px) {
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	#main {
+		width: 320px;
+		height: 480px;
+	}
 }

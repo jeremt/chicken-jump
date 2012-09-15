@@ -8,8 +8,8 @@ define [
 
 	class Game
 
-		WIDTH 	= 400
-		HEIGHT 	= 600
+		WIDTH 	= if window.innerWidth < 400 then 320 else 400
+		HEIGHT 	= if window.innerWidth < 400 then 480 else 600
 
 		MAX_PLATEFORMS = 8
 		PLATFORM_WIDTH = 80
@@ -21,6 +21,7 @@ define [
 			@player = new Player @ctx, "img/tux.png"
 			console.log @player
 			@createPlatforms()
+			window.onresize = -> console.warn "Cannot resize in game !"
 
 		createPlatforms: ->
 			y = 0

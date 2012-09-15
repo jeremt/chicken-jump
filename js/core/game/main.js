@@ -6,9 +6,9 @@
     return Game = (function() {
       var HEIGHT, MAX_PLATEFORMS, PLATFORM_HEIGHT, PLATFORM_WIDTH, WIDTH;
 
-      WIDTH = 400;
+      WIDTH = window.innerWidth < 400 ? 320 : 400;
 
-      HEIGHT = 600;
+      HEIGHT = window.innerWidth < 400 ? 480 : 600;
 
       MAX_PLATEFORMS = 8;
 
@@ -22,6 +22,9 @@
         this.player = new Player(this.ctx, "img/tux.png");
         console.log(this.player);
         this.createPlatforms();
+        window.onresize = function() {
+          return console.warn("Cannot resize in game !");
+        };
       }
 
       Game.prototype.createPlatforms = function() {
