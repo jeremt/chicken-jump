@@ -1,0 +1,19 @@
+/*@import url(http://fonts.googleapis.com/css?family=Galindo);*/
+
+h1 {
+	font-family: "Galindo", helvetica, sans-serif;
+}
+
+#main {
+	text-align: center;
+	border-radius: 1px;
+	background: rgba(0, 0, 0, .05);
+	/*background: rgba(225, 200, 140, .4);*/
+	border-radius: 10px;
+	width: 400px;
+	height: 600px;
+	overflow: hidden;
+	margin: auto;
+}
+
+#menu, #end { display: none }
