@@ -4,11 +4,13 @@
   define(["helpers/ctx", "core/game/platform", "core/game/player", "libs/kevent", "libs/requestAnimationFrame"], function(getCtx, Platform, Player, KEvent) {
     var Game;
     return Game = (function() {
-      var HEIGHT, MAX_PLATEFORMS, PLATFORM_HEIGHT, PLATFORM_WIDTH, WIDTH;
+      var HEIGHT, MAX_PLATEFORMS, PADDING, PLATFORM_HEIGHT, PLATFORM_WIDTH, WIDTH;
 
-      WIDTH = window.innerWidth < 400 ? 320 : 400;
+      PADDING = 40;
 
-      HEIGHT = window.innerWidth < 400 ? 480 : 600;
+      WIDTH = window.innerWidth < 400 ? 320 : 400 - PADDING;
+
+      HEIGHT = window.innerWidth < 400 ? 480 : 600 - PADDING;
 
       MAX_PLATEFORMS = 8;
 

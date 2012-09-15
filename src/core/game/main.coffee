@@ -8,8 +8,9 @@ define [
 
 	class Game
 
-		WIDTH 	= if window.innerWidth < 400 then 320 else 400
-		HEIGHT 	= if window.innerWidth < 400 then 480 else 600
+		PADDING = 40
+		WIDTH 	= if window.innerWidth < 400 then 320 else 400 - PADDING
+		HEIGHT 	= if window.innerWidth < 400 then 480 else 600 - PADDING
 
 		MAX_PLATEFORMS = 8
 		PLATFORM_WIDTH = 80
