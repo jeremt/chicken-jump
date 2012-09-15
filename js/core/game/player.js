@@ -15,8 +15,8 @@
       function Player(ctx, src, x, y) {
         var nbFrame, timeInterval;
         this.ctx = ctx;
-        this.width = 65;
-        this.height = 71;
+        this.width = 90;
+        this.height = 80;
         nbFrame = 1;
         timeInterval = 5;
         this.playerSprite = new Sprite(src, this.width, this.height, nbFrame, timeInterval);

@@ -10,8 +10,8 @@ define [
 		PLATFORM_HEIGHT = 20
 
 		constructor: (@ctx, src, x, y) ->
-			@width = 65
-			@height = 71
+			@width = 90
+			@height = 80
 
 			nbFrame = 1
 			timeInterval = 5

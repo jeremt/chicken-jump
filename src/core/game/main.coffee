@@ -18,7 +18,7 @@ define [
 		constructor: (selector) ->
 			@ctx = getCtx selector, WIDTH, HEIGHT
 			@platforms = []
-			@player = new Player @ctx, "img/tux.png"
+			@player = new Player @ctx, "img/tux.gif"
 			@createPlatforms()
 			window.onresize = -> console.warn "Cannot resize in game !"
 
