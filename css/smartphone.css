@@ -1,0 +1,10 @@
+@media screen and (max-width: 400px), screen and (max-device-width: 400px) {
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	#main {
+		width: 320px;
+		height: 480px;
+	}
+}

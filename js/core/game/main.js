@@ -20,7 +20,6 @@
         this.ctx = getCtx(selector, WIDTH, HEIGHT);
         this.platforms = [];
         this.player = new Player(this.ctx, "img/tux.png");
-        console.log(this.player);
         this.createPlatforms();
         window.onresize = function() {
           return console.warn("Cannot resize in game !");

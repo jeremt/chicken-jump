@@ -18,7 +18,6 @@
           };
         }
         this.switchPage(first);
-        console.log(parent);
         links = document.querySelectorAll(parent + " button[data-target]");
         for (_i = 0, _len = links.length; _i < _len; _i++) {
           link = links[_i];

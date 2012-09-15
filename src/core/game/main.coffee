@@ -19,7 +19,6 @@ define [
 			@ctx = getCtx selector, WIDTH, HEIGHT
 			@platforms = []
 			@player = new Player @ctx, "img/tux.png"
-			console.log @player
 			@createPlatforms()
 			window.onresize = -> console.warn "Cannot resize in game !"
 

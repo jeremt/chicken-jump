@@ -10,7 +10,6 @@ define ->
 
 			@switchPage first
 
-			console.log parent
 			links = document.querySelectorAll parent + " button[data-target]"
 			for link in links
 				link.onclick = (e) ->
