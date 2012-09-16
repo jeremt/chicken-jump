@@ -6,15 +6,14 @@
     return Player = (function() {
       var PLATFORM_HEIGHT, PLATFORM_WIDTH, SPEED;
 
-      SPEED = 10;
+      SPEED = 8;
 
       PLATFORM_WIDTH = 80;
 
       PLATFORM_HEIGHT = 20;
 
       function Player(ctx, src, width, height, x, y) {
-        var nbFrame, timeInterval, _game, _pressed,
-          _this = this;
+        var nbFrame, timeInterval;
         this.ctx = ctx;
         this.width = width;
         this.height = height;
@@ -22,20 +21,7 @@
         timeInterval = 5;
         this.playerSprite = new Sprite(src, this.width, this.height, nbFrame, timeInterval);
         this.key = new KEvent;
-        _game = document.querySelector("#game");
-        _pressed = false;
-        _game.onmousedown = function(e) {
-          return _pressed = true;
-        };
-        _game.onmouseup = function(e) {
-          return _pressed = false;
-        };
-        _game.onmousemove = function(e) {
-          if (!_pressed) {
-            return;
-          }
-          return _this.x = e.clientX - (window.innerWidth / 2 - _this.ctx.width / 2) - 40;
-        };
+        this.mobileEvents();
         this.score = 0;
         this.x = 0;
         this.y = 0;
@@ -55,6 +41,25 @@
       Player.prototype.move = function(x, y) {
         this.x = x;
         this.y = y;
+      };
+
+      Player.prototype.mobileEvents = function() {
+        var _game, _pressed,
+          _this = this;
+        _game = document.querySelector("#game");
+        _pressed = false;
+        _game.ontouchstart = function(e) {
+          return _pressed = true;
+        };
+        _game.ontouchend = function(e) {
+          return _pressed = false;
+        };
+        return _game.ontouchmove = function(e) {
+          if (!_pressed) {
+            return;
+          }
+          return _this.x = e.clientX - (window.innerWidth / 2 - _this.ctx.width / 2) - 40;
+        };
       };
 
       Player.prototype.start = function() {

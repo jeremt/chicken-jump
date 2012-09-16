@@ -3,7 +3,7 @@ define ->
 	class Platform
 
 		COLORS = [
-			"rgba(0, 0, 0, .1)" # gray  - basic platform
+			"#77a1b5" # gray  - basic platform
 			"#ec5d5d" 					# red   - broken platform
 			"#bae1ad" 					# green - for jump x2
 		]

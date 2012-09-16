@@ -5,7 +5,7 @@ define [
 
 	class Player
 
-		SPEED = 10
+		SPEED = 8
 		PLATFORM_WIDTH = 80
 		PLATFORM_HEIGHT = 20
 
@@ -17,13 +17,7 @@ define [
 
 			@key = new KEvent
 
-			_game = document.querySelector("#game")
-			_pressed = false
-			_game.onmousedown = (e) -> _pressed = true
-			_game.onmouseup = (e) -> _pressed = false
-			_game.onmousemove = (e) =>
-				return unless _pressed
-				@x = e.clientX - (window.innerWidth / 2 - @ctx.width / 2) - 40
+			@mobileEvents()
 
 			@score = 0
 
@@ -41,6 +35,15 @@ define [
 			@move x, y
 
 		move: (@x, @y) ->
+
+		mobileEvents: ->
+			_game = document.querySelector("#game")
+			_pressed = false
+			_game.ontouchstart = (e) -> _pressed = true
+			_game.ontouchend = (e) -> _pressed = false
+			_game.ontouchmove = (e) =>
+				return unless _pressed
+				@x = e.clientX - (window.innerWidth / 2 - @ctx.width / 2) - 40
 
 		start: ->
 			@isFalling = false
