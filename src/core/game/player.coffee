@@ -44,6 +44,8 @@ define [
 			_game.ontouchmove = (e) =>
 				return unless _pressed
 				@x = e.clientX - (window.innerWidth / 2 - @ctx.width / 2) - 40
+			_game.onmousemove = (e) =>
+				@x = e.clientX - (window.innerWidth / 2 - @ctx.width / 2) - 40
 
 		start: ->
 			@isFalling = false

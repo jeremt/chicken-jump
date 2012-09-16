@@ -6,7 +6,7 @@
     return Menu = (function() {
 
       function Menu(parent, first, pages) {
-        var callback, link, links, obj, selector, _i, _len, _ref;
+        var callback, link, links, obj, selector, switchTo, _i, _len, _ref;
         this.pages = pages;
         obj = this;
         _ref = this.pages;
@@ -21,10 +21,12 @@
         links = document.querySelectorAll(parent + " button[data-target]");
         for (_i = 0, _len = links.length; _i < _len; _i++) {
           link = links[_i];
-          link.onclick = function(e) {
+          switchTo = function(e) {
             selector = "#" + this.dataset["target"];
             return obj.switchPage(selector);
           };
+          link.onclick = switchTo;
+          link.ontouchstart = switchTo;
         }
       }
 

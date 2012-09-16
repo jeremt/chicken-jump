@@ -54,10 +54,13 @@
         _game.ontouchend = function(e) {
           return _pressed = false;
         };
-        return _game.ontouchmove = function(e) {
+        _game.ontouchmove = function(e) {
           if (!_pressed) {
             return;
           }
+          return _this.x = e.clientX - (window.innerWidth / 2 - _this.ctx.width / 2) - 40;
+        };
+        return _game.onmousemove = function(e) {
           return _this.x = e.clientX - (window.innerWidth / 2 - _this.ctx.width / 2) - 40;
         };
       };

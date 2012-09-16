@@ -12,9 +12,11 @@ define ->
 
 			links = document.querySelectorAll parent + " button[data-target]"
 			for link in links
-				link.onclick = (e) ->
+				switchTo = (e) ->
 					selector = "#" + @dataset["target"]
 					obj.switchPage selector
+				link.onclick = switchTo
+				link.ontouchstart = switchTo
 
 		switchPage: (selector) ->
 			for key, page of @pages
