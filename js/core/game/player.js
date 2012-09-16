@@ -12,15 +12,30 @@
 
       PLATFORM_HEIGHT = 20;
 
-      function Player(ctx, src, x, y) {
-        var nbFrame, timeInterval;
+      function Player(ctx, src, width, height, x, y) {
+        var nbFrame, timeInterval, _game, _pressed,
+          _this = this;
         this.ctx = ctx;
-        this.width = 90;
-        this.height = 80;
+        this.width = width;
+        this.height = height;
         nbFrame = 1;
         timeInterval = 5;
         this.playerSprite = new Sprite(src, this.width, this.height, nbFrame, timeInterval);
         this.key = new KEvent;
+        _game = document.querySelector("#game");
+        _pressed = false;
+        _game.onmousedown = function(e) {
+          return _pressed = true;
+        };
+        _game.onmouseup = function(e) {
+          return _pressed = false;
+        };
+        _game.onmousemove = function(e) {
+          if (!_pressed) {
+            return;
+          }
+          return _this.x = e.clientX - (window.innerWidth / 2 - _this.ctx.width / 2) - 40;
+        };
         this.score = 0;
         this.x = 0;
         this.y = 0;
@@ -66,7 +81,7 @@
 
       Player.prototype.jump = function(platforms) {
         var i, platform, type, x, y;
-        if (this.y > this.ctx.height * 0.4) {
+        if (this.y > this.ctx.height * 0.3) {
           this.move(this.x, this.y - this.jumpSpeed);
         } else {
           if (this.jumpSpeed > 10) {

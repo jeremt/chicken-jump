@@ -1,57 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Galindo);
 @import url(http://fonts.googleapis.com/css?family=Schoolbell);
 
+@import url(general.css);
 @import url(smartphone.css);
-
-* {
-	font-family: 'Schoolbell', sans-serif;
-	color: rgba(0, 0, 0, .42);
-}
-
-h1 {
-	color: rgba(0, 0, 0, .6);
-	font-family: "Galindo", helvetica, sans-serif;
-}
-
-#main {
-	box-sizing: border-box;
-	padding: 20px;
-	text-align: center;
-	border-radius: 1px;
-	background: rgba(0, 0, 0, .05);
-	/*background: rgba(225, 200, 140, .4);*/
-	border-radius: 10px;
-	width: 400px;
-	height: 600px;
-	overflow: hidden;
-	margin: auto;
-}
-
-a {
-	color: #77a1b5;
-	text-decoration: none;
-}
-
-a:hover {
-	border-bottom: 1px dashed #77a1b5;
-}
-
-button, .button {
-	box-sizing: border-box;
-	display: block;
-	color: rgba(0, 0, 0, .42);
-	text-decoration: none;
-	background: rgba(0, 0, 0, .05);
-	border-radius: 10px;
-	padding: 20px;
-	font-size: 15px;
-	border: none;
-	width: 240px;
-	margin: 20px auto;
-}
-
-button:hover, .button:hover {
-	cursor: pointer;
-	background: rgba(0, 0, 0, .1);
-	border: none;
-}

@@ -3,8 +3,6 @@ fs = require 'fs'
 {print} = require 'sys'
 {spawn} = require 'child_process'
 
-NAME = "chicken-jump"
-
 system = (name, args) ->
   print = (buffer) -> process.stdout.write buffer.toString()
   proc = spawn name, args

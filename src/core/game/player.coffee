@@ -9,16 +9,21 @@ define [
 		PLATFORM_WIDTH = 80
 		PLATFORM_HEIGHT = 20
 
-		constructor: (@ctx, src, x, y) ->
-			@width = 90
-			@height = 80
-
+		constructor: (@ctx, src, @width, @height, x, y) ->
 			nbFrame = 1
 			timeInterval = 5
 
 			@playerSprite = new Sprite src, @width, @height, nbFrame, timeInterval
 
 			@key = new KEvent
+
+			_game = document.querySelector("#game")
+			_pressed = false
+			_game.onmousedown = (e) -> _pressed = true
+			_game.onmouseup = (e) -> _pressed = false
+			_game.onmousemove = (e) =>
+				return unless _pressed
+				@x = e.clientX - (window.innerWidth / 2 - @ctx.width / 2) - 40
 
 			@score = 0
 
@@ -53,7 +58,7 @@ define [
 				return [0, 1, 1, 1, 1, 1, 1, 1, 1, 1][i]
 			return [0, 0, 0, 0, 0, 0, 1, 1, 2, 2][i]
 		jump: (platforms) ->
-			if @y > @ctx.height * 0.4
+			if @y > @ctx.height * 0.3 # begin scroll at 70%
 				@move @x, @y - @jumpSpeed
 			else
 				if @jumpSpeed > 10

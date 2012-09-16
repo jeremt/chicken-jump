@@ -4,24 +4,28 @@
   define(["helpers/ctx", "core/game/platform", "core/game/player", "libs/kevent", "libs/requestAnimationFrame"], function(getCtx, Platform, Player, KEvent) {
     var Game;
     return Game = (function() {
-      var HEIGHT, MAX_PLATEFORMS, PADDING, PLATFORM_HEIGHT, PLATFORM_WIDTH, WIDTH;
+      var HEIGHT, MAX_PLATEFORMS, MAX_SPEED, PADDING, PLATFORM_HEIGHT, PLATFORM_WIDTH, WIDTH, _isMobile;
 
-      PADDING = 40;
+      _isMobile = window.innerWidth < 400;
 
-      WIDTH = window.innerWidth < 400 ? 320 : 400 - PADDING;
+      PADDING = _isMobile ? 20 : 40;
 
-      HEIGHT = window.innerWidth < 400 ? 480 : 600 - PADDING;
+      WIDTH = (_isMobile ? 320 : 400) - PADDING;
 
-      MAX_PLATEFORMS = 8;
+      HEIGHT = (_isMobile ? 480 : 600) - PADDING;
+
+      MAX_PLATEFORMS = 6;
 
       PLATFORM_WIDTH = 80;
 
       PLATFORM_HEIGHT = 20;
 
+      MAX_SPEED = 21;
+
       function Game(selector) {
         this.ctx = getCtx(selector, WIDTH, HEIGHT);
         this.platforms = [];
-        this.player = new Player(this.ctx, "img/tux.gif");
+        this.player = new Player(this.ctx, "img/tux.gif", 90, 80);
         this.createPlatforms();
         window.onresize = function() {
           return console.warn("Cannot resize in game !");
@@ -71,6 +75,7 @@
                 platform.direction = -1;
               }
               speed = ~~(_this.player.score / 100);
+              speed = speed > MAX_SPEED ? MAX_SPEED : speed;
               platform.x += platform.direction * (index >> 1) * speed;
             }
             platform.draw(_this.ctx);

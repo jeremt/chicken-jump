@@ -8,18 +8,22 @@ define [
 
 	class Game
 
-		PADDING = 40
-		WIDTH 	= if window.innerWidth < 400 then 320 else 400 - PADDING
-		HEIGHT 	= if window.innerWidth < 400 then 480 else 600 - PADDING
+		_isMobile = window.innerWidth < 400
 
-		MAX_PLATEFORMS = 8
+		PADDING = if _isMobile then 20 else 40
+		WIDTH 	= (if _isMobile then 320 else 400) - PADDING
+		HEIGHT 	= (if _isMobile then 480 else 600) - PADDING
+
+		MAX_PLATEFORMS = 6
 		PLATFORM_WIDTH = 80
-		PLATFORM_HEIGHT = 20;
+		PLATFORM_HEIGHT = 20
+
+		MAX_SPEED = 21
 
 		constructor: (selector) ->
 			@ctx = getCtx selector, WIDTH, HEIGHT
 			@platforms = []
-			@player = new Player @ctx, "img/tux.gif"
+			@player = new Player @ctx, "img/tux.gif", 90, 80
 			@createPlatforms()
 			window.onresize = -> console.warn "Cannot resize in game !"
 
@@ -55,8 +59,9 @@ define [
 						else if platform.x > @ctx.width - PLATFORM_WIDTH
 							platform.direction = -1
 						speed = ~~(@player.score / 100)
+						speed = if speed > MAX_SPEED then MAX_SPEED else speed
 						platform.x += platform.direction * (index >> 1) * speed;
-					platform.draw(@ctx)
+					platform.draw @ctx
 
 				@player.draw()
 

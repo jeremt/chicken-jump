@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
   <title>Chicken Jump</title>
@@ -13,25 +14,30 @@
 			<button data-target="help">Help</button>
 			<button data-target="credits">Credits</button>
 			<a class="button" target="_blank" href="https://github.com/JeremieT/chicken-jump">Github</a>
-		</div>
+		</div> <!-- #menu -->
 		<div id="help">
 			<h1>Help</h1>
 			<p>Use left and right arrow to move, and try to get the highest possible !</p>
 			<button data-target="menu">Back</button>
-		</div>
+		</div> <!-- #help -->
 		<div id="credits">
 			<h1>Credits</h1>
 			<p>Made thanks to <a target="_blank" href="http://coffeescript.org">CoffeeScript</a>, <a target="_blank" href="http://requirejs.org/">RequireJS</a>, <a target="_blank" href="http://dev.w3.org/html5/spec/">HTML5</a> and <a target="_blank" href="https://github.com/">Github</a> :)</p>
 			<p>And thanks to Tux for replacing my chicken I didn't draw yet.</p>
 			<button data-target="menu">Back</button>
+		</div> <!-- #credits -->
+		<div id="game">
+			<div hidden>
+				<div id="left">←</div>
+				<div id="right">→</div>
+			</div>
 		</div>
-		<div id="game"></div>
 		<div id="end">
 			<h1>Game Over</h1>
 			<p>You loose, try again :p</p>
 			<p>Your score is <span id="score"></span>.</p>
 			<button onclick="javascript:window.location.reload()">Back</button>
-		</div>
-	</div>
+		</div> <!-- #end -->
+	</div> <!-- #main -->
 </body>
 </html>
