@@ -1,3 +1,8 @@
+/*
+ RequireJS 2.0.6 Copyright (c) 2010-2012, The Dojo Foundation All Rights Reserved.
+ Available via the MIT or new BSD license.
+ see: http://github.com/jrburke/requirejs for details
+*/
 var requirejs,require,define;
 (function(Z){function x(b){return J.call(b)==="[object Function]"}function E(b){return J.call(b)==="[object Array]"}function o(b,e){if(b){var f;for(f=0;f<b.length;f+=1)if(b[f]&&e(b[f],f,b))break}}function M(b,e){if(b){var f;for(f=b.length-1;f>-1;f-=1)if(b[f]&&e(b[f],f,b))break}}function y(b,e){for(var f in b)if(b.hasOwnProperty(f)&&e(b[f],f))break}function N(b,e,f,h){e&&y(e,function(e,j){if(f||!F.call(b,j))h&&typeof e!=="string"?(b[j]||(b[j]={}),N(b[j],e,f,h)):b[j]=e});return b}function t(b,e){return function(){return e.apply(b,
 arguments)}}function $(b){if(!b)return b;var e=Z;o(b.split("."),function(b){e=e[b]});return e}function aa(b,e,f){return function(){var h=ga.call(arguments,0),c;if(f&&x(c=h[h.length-1]))c.__requireJsBuild=!0;h.push(e);return b.apply(null,h)}}function ba(b,e,f){o([["toUrl"],["undef"],["defined","requireDefined"],["specified","requireSpecified"]],function(h){var c=h[1]||h[0];b[h[0]]=e?aa(e[c],f):function(){var b=z[O];return b[c].apply(b,arguments)}})}function G(b,e,f,h){e=Error(e+"\nhttp://requirejs.org/docs/errors.html#"+
