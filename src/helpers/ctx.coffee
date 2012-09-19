@@ -19,11 +19,18 @@ define ->
 		return ctx
 
 	###
-		clear: Clear all the canvas.
+		clear: Clear all the canvas. (if has color param, fill with color)
+
+		@param {String} (color) The color string
 	###
 
-	CanvasRenderingContext2D::clear = ->
+	CanvasRenderingContext2D::clear = (color) ->
 		@clearRect 0, 0, @width, @height
+		if color
+			save = @fillStyle
+			@fillStyle = color
+			@fillRect 0, 0, @width, @height
+			@fillStyle = save
 
 	###
 		roundRect: Draws a rounded rectangle in the canvas.

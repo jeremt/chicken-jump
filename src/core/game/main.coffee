@@ -15,7 +15,7 @@ define [
 		HEIGHT 	= (if _isMobile then 480 else 600) - PADDING
 
 		MAX_PLATEFORMS = 6
-		PLATFORM_WIDTH = 80
+		PLATFORM_WIDTH = 70
 		PLATFORM_HEIGHT = 20
 
 		MAX_SPEED = 21
@@ -23,7 +23,7 @@ define [
 		constructor: (selector) ->
 			@ctx = getCtx selector, WIDTH, HEIGHT
 			@platforms = []
-			@player = new Player @ctx, "img/tux.gif", 90, 80
+			@player = new Player @ctx, "img/chicken.png", 70, 70
 			@createPlatforms()
 			window.onresize = -> console.warn "Cannot resize in game !"
 
@@ -43,7 +43,7 @@ define [
 			_run = =>
 				id = requestAnimationFrame _run
 
-				@ctx.clear()
+				@ctx.clear("#d8e7f1")
 
 				for platform in @platforms
 					platform.hitWith @player

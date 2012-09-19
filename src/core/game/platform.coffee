@@ -4,8 +4,8 @@ define ->
 
 		COLORS = [
 			"#77a1b5" # gray  - basic platform
-			"#ec5d5d" 					# red   - broken platform
-			"#bae1ad" 					# green - for jump x2
+			"#ec5d5d" # red   - broken platform
+			"#8bba58" # green - for jump x2
 		]
 
 		constructor: (@x, @y, @width, @height, @type) ->

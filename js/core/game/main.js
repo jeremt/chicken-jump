@@ -16,7 +16,7 @@
 
       MAX_PLATEFORMS = 6;
 
-      PLATFORM_WIDTH = 80;
+      PLATFORM_WIDTH = 70;
 
       PLATFORM_HEIGHT = 20;
 
@@ -25,7 +25,7 @@
       function Game(selector) {
         this.ctx = getCtx(selector, WIDTH, HEIGHT);
         this.platforms = [];
-        this.player = new Player(this.ctx, "img/tux.gif", 90, 80);
+        this.player = new Player(this.ctx, "img/chicken.png", 70, 70);
         this.createPlatforms();
         window.onresize = function() {
           return console.warn("Cannot resize in game !");
@@ -55,7 +55,7 @@
         _run = function() {
           var id, index, platform, speed, _i, _len, _ref, _ref1;
           id = requestAnimationFrame(_run);
-          _this.ctx.clear();
+          _this.ctx.clear("#d8e7f1");
           _ref = _this.platforms;
           for (_i = 0, _len = _ref.length; _i < _len; _i++) {
             platform = _ref[_i];

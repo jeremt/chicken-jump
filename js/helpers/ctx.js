@@ -22,11 +22,20 @@
       return ctx;
     };
     /*
-    		clear: Clear all the canvas.
+    		clear: Clear all the canvas. (if has color param, fill with color)
+    
+    		@param {String} (color) The color string
     */
 
-    CanvasRenderingContext2D.prototype.clear = function() {
-      return this.clearRect(0, 0, this.width, this.height);
+    CanvasRenderingContext2D.prototype.clear = function(color) {
+      var save;
+      this.clearRect(0, 0, this.width, this.height);
+      if (color) {
+        save = this.fillStyle;
+        this.fillStyle = color;
+        this.fillRect(0, 0, this.width, this.height);
+        return this.fillStyle = save;
+      }
     };
     /*
     		roundRect: Draws a rounded rectangle in the canvas.

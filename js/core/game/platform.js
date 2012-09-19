@@ -6,7 +6,7 @@
     return Platform = (function() {
       var COLORS;
 
-      COLORS = ["#77a1b5", "#ec5d5d", "#bae1ad"];
+      COLORS = ["#77a1b5", "#ec5d5d", "#8bba58"];
 
       function Platform(x, y, width, height, type) {
         this.x = x;

@@ -10,7 +10,7 @@ define [
 		PLATFORM_HEIGHT = 20
 
 		constructor: (@ctx, src, @width, @height, x, y) ->
-			nbFrame = 1
+			nbFrame = 6
 			timeInterval = 5
 
 			@playerSprite = new Sprite src, @width, @height, nbFrame, timeInterval

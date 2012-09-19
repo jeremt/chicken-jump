@@ -17,7 +17,7 @@
         this.ctx = ctx;
         this.width = width;
         this.height = height;
-        nbFrame = 1;
+        nbFrame = 6;
         timeInterval = 5;
         this.playerSprite = new Sprite(src, this.width, this.height, nbFrame, timeInterval);
         this.key = new KEvent;

@@ -5,14 +5,16 @@
     "kevent": "libs/kevent"
   });
 
-  require(["core/menu", "core/game/main"], function(Menu, Game) {
-    var gameMenu, pages, runGame;
+  require(["core/menu", "core/game/main", "helpers/socialshare", "libs/zepto"], function(Menu, Game, share, $) {
+    var gameMenu, message, pages, runGame;
+    message = "";
     runGame = function() {
       var game;
       game = new Game("#game");
       return game.run(function(score) {
         gameMenu.switchPage("#end");
-        return document.querySelector("#score").innerHTML = score;
+        document.querySelector("#score").innerHTML = score;
+        return message = "I just scored " + score + " to chicken-jump :) Try to do better !";
       });
     };
     pages = {
@@ -22,7 +24,10 @@
       "#help": null,
       "#end": null
     };
-    return gameMenu = new Menu("#main", "#menu", pages);
+    gameMenu = new Menu("#main", "#menu", pages);
+    return $(".twitter, .facebook").click(function() {
+      return share($(this).attr("class"), "Yeah !", message);
+    });
   });
 
 }).call(this);

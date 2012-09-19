@@ -4,13 +4,18 @@ require.config
 require [
 	"core/menu"
 	"core/game/main"
-], (Menu, Game) ->
+	"helpers/socialshare",
+	"libs/zepto"
+], (Menu, Game, share, $) ->
+
+	message = ""
 
 	runGame = ->
 		game = new Game "#game"
 		game.run (score) ->
 			gameMenu.switchPage "#end"
 			document.querySelector("#score").innerHTML = score
+			message = "I just scored #{score} to chicken-jump :) Try to do better !"
 
 	pages =
 		"#menu"		 : null
@@ -20,3 +25,9 @@ require [
 		"#end" 		 : null
 
 	gameMenu = new Menu "#main", "#menu", pages
+
+
+	# handle social share
+
+	$(".twitter, .facebook").click ->
+		share $(@).attr("class"), "Yeah !", message
